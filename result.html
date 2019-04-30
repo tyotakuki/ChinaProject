@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Generic - Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<ul class="icons">
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>结果展示:蘑菇毒性的分析</h1>
+									</header>
+                                    
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+                                    <div>
+                                    <h2>数据的简介</h2>
+                                    <p>在8000余个样本中，分析了如下22个可能和蘑菇毒性有关的蘑菇性状：</p>
+                                    <table>
+                                     <tr>
+                                      <td>菌盖</td>
+                                      <td>菌柄</td>
+                                      <td>菌褶</td>
+                                      <td>菌幕</td>
+                                      <td>环</td>
+                                      <td>其它性质</td>
+                                     </tr>
+                                     <tr>
+                                      <td>形状：cap-shape</td>
+                                      <td>形状：stalk-shape</td>
+                                      <td>连接：gill-attachment</td>
+                                      <td>类型：veil-type</td>
+                                      <td>数量：ring-number</td>
+                                      <td>表面阴影：bruises</td>
+                                     </tr>
+                                     <tr>
+                                      <td>表面：cap-surface</td>
+                                      <td>根：stalk-root</td>
+                                      <td>间隔：gill-spacing</td>
+                                      <td>颜色：veil-color</td>
+                                      <td>类型：ring-type</td>
+                                      <td>气味：odor</td>
+                                     </tr>
+                                     <tr>
+                                      <td>颜色：cap-color</td>
+                                      <td>环上部的表面：stalk-surface-above-ring</td>
+                                      <td>大小：gill-size</td>
+                                      <td></td>
+                                      <td></td>
+                                      <td>Spore-print-color</td>
+                                     </tr>
+                                     <tr>
+                                      <td></td>
+                                      <td>环下部的表面：stalk-surface-below-ring</td>
+                                      <td>颜色：gill-color</td>
+                                      <td></td>
+                                      <td></td>
+                                      <td>Population</td>
+                                     </tr>
+                                     <tr>
+                                      <td></td>
+                                      <td>环上部的颜色：stalk-color-above-ring</td>
+                                      <td></td>
+                                      <td></td>
+                                      <td></td>
+                                      <td>habitat</td>
+                                     </tr>
+                                     <tr>
+                                      <td></td>
+                                      <td>环下部的颜色：stalk-color-below-ring</td>
+                                      <td></td>
+                                      <td></td>
+                                      <td></td>
+                                      <td></td>
+                                     </tr>
+                                    </table>
+                                    <p>在数据源Kaggle中，每一种性状的解释说明如下</p><hr />
+                                    <div style="height: 400px"><iframe src="propertynames.htm" style="overflow:hidden;width:100%;height:100%;resize: both"></iframe></div>
+                                    </div>
+									<hr class="major" />
+                                    <div>
+                                    <h2>数据的预先处理步骤</h2>
+                                    <p>我们首先把8000多个样本通过随机抽取的方法，分解成5000个训练数据和3000个测试数据。之后，我们ba数据里面的字符信息转化为数字信息，即用一些数字去代表根蘑菇性状相关的信息。字符信息和数字信息对应的表格如下：</p>
+                                    <div style="height: 400px"><iframe src="mydic.htm" style="overflow:hidden;width:100%;height:100%;resize: both"></iframe></div>
+                                    <p>我们把所有的数字转化成从0到1点小数，以避免这些数字的绝对大小对最后结果的影响。最后，我们从代表影响因素的数字中去掉了该影响因素的平均值，以抵消平均值不同所带来的影响。</p>
+                                    </div>
+                                    <hr class="major" />
+                                    <div>
+									<h2>主成分分析</h2>
+                                    <p>但是，蘑菇毒性的可能影响因素仍然有22个，对于数据处理来说过于繁杂。我们希望能把影响因素减少到2-3个，这就涉及到了数据的降维。在这个例子中，降维的方法我们将会使用主成分分析。主成分分析的主要思路是计算协方差矩阵和它的本征值/本征向量，我们把前六个本征向量和它们贡献的百分比用如下柱状图画了出来：</p>
+                                    <div style="height: 500px"><iframe src="barchart.htm" style="overflow:hidden;width:100%;height:100%;resize: both"></iframe></div>
+                                    <p>我们可以发现，前六个本征向量贡献了>80%的影响，因而我们可以认为前六个本征向量足以刻画这个数据集的性质。因而我们在直角坐标系中可以画出前三个主成分，并且用红色和蓝色标出它们已经测量好的的毒性：</p>
+                                    <div class="posts">
+										<article>
+											<div style="height: 400px"><iframe src="plotpc1to3.htm" style="width:100%;height:100%;resize: both">a</iframe></div>
+                                            <div>
+                                                <h3>前三个主成分的静态图</h3>
+                                                <p>图中画出的是蘑菇毒性影响因素的前三个主成分</p>
+                                            </div>
+										</article>
+										<article>
+                                            
+											<div style="height: 400px"><iframe src="embed3d.html" style="overflow:hidden;width:200%;height:200%;resize: both">a</iframe></div>
+                                            <div>
+                                                <h3>前三个主成分的动态图</h3>
+                                                <p>左图的动态版本。双击可以居中，可以用鼠标/触摸板缩放。</p>
+                                            </div>
+										</article>
+                                    </div>
+                                    </div>
+                                    <hr class="major" />
+                                    <div>
+                                    <p>从这些前三个主成分的图中，我们可以看出，毒蘑菇和无毒蘑菇倾向于在空间中形成非常紧密的聚类，各类之间也比较分散的被分隔开。所以我们可以发现，用前三个主成分是可以在一定程度上反映出蘑菇毒性和特征的关系。</p>
+                                    <h2>使用降维之后的数据进行进一步分析</h2>
+                                        <p>我们用主成分分析的办法，把22个因素减少到了4个。因而，5000组训练数据中，就只有20000个数字需要考虑。极大的降低了计算量。我们分别使用决策树模型和支持向量机模型来通过这4个主成分来预测蘑菇的毒性，准确率的结果如下：</p>
+                                    <div class="posts">
+										<article>                                           
+											<div style="height: 400px"><iframe src="svm_4pcs.htm" style="width:100%;height:100%; resize: both">a</iframe></div>
+                                            <div>
+                                                <h3>取前四个主成分的决策树预测准确率</h3>
+                                                <p>用前四个主成分和决策树模型来预测蘑菇的毒性</p>
+                                            </div>
+										</article>
+										<article>
+											<div style="height: 400px"><iframe src="dectree_4pcs.htm" style="width:100%;height:100%;resize: both">a</iframe></div>
+                                            <div>
+                                                <h3>取前四个主成分的支持向量机预测准确率</h3>
+                                                <p>用前四个主成分和支持向量机模型来预测蘑菇的毒性</p>
+                                            </div>
+										</article>
+                                    </div>
+                                    </div>
+
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="generic.html">Generic</a></li>
+										<li><a href="elements.html">Elements</a></li>
+										<li>
+											<span class="opener">Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li>
+										<li>
+											<span class="opener">Another Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Maximus Erat</a></li>
+										<li><a href="#">Sapien Mauris</a></li>
+										<li><a href="#">Amet Lacinia</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+									<ul class="contact">
+										<li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
+										<li class="fa-phone">(000) 000-0000</li>
+										<li class="fa-home">1234 Somewhere Road #8254<br />
+										Nashville, TN 00000-0000</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
